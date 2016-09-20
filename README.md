@@ -19,4 +19,23 @@ events.emit('print', 'Hello World!')
 // logs 'Hello World!'
 ```
 
+Loop can also accept an object to extend with its emitter methods.
+```javascript
+const instance = loop({
+  play: () => {},
+  pause: () => {}
+})
+
+console.dir(instance)
+
+/*
+{
+  on,
+  emit,
+  play,
+  pause
+}
+*/
+```
+
 MIT License
