@@ -5,7 +5,7 @@
   "main": "index.js",
   "jsnext:main": "index.js",
   "scripts": {
-    "build": "mkdir -p browser && browserify index.js --standalone loop > browser/loop.js",
+    "build": "mkdir -p browser && browserify index.js --standalone loop -p [minifyify --no-map] > browser/loop.js",
     "size": "bundle-size ./index.js",
     "test": "ava test -v"
   },

@@ -1,39 +1,4 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.loop = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports.default = function () {
-  var o = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-  var listeners = {};
-
-  var on = function on(e) {
-    var cb = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-    if (!cb) return;
-    listeners[e] = listeners[e] || { queue: [] };
-    listeners[e].queue.push(cb);
-  };
-
-  var emit = function emit(e) {
-    var data = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-    var items = listeners[e] ? listeners[e].queue : false;
-    items && items.forEach(function (i) {
-      return i(data);
-    });
-  };
-
-  return _extends({}, o, {
-    emit: emit,
-    on: on
-  });
-};
-
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};exports.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t={},n=function(e){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null;n&&(t[e]=t[e]||{queue:[]},t[e].queue.push(n))},r=function(e){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,r=!!t[e]&&t[e].queue;r&&r.forEach(function(e){return e(n)})};return _extends({},e,{emit:r,on:n})};
 },{}]},{},[1])(1)
 });
