@@ -3,11 +3,10 @@
   "version": "0.2.0",
   "description": "",
   "main": "dist/index.js",
-  "jsnext:main": "index.js",
   "scripts": {
     "browser": "mkdir -p browser && browserify index.js --standalone loop -p [minifyify --no-map] > browser/loop.js",
     "build": "babel index.js -d dist/",
-    "size": "bundle-size ./index.js",
+    "size": "bundle-size ./dist/index.js",
     "lint": "standard 'src/*.js'",
     "prebuild": "npm run lint",
     "test": "ava test -v"
